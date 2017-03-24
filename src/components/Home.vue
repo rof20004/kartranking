@@ -3,30 +3,20 @@
     <md-toolbar>
       <h2 class="md-title" style="flex: 1">{{ title }}</h2>
     </md-toolbar>
-    <md-table>
-      <md-table-header>
-        <md-table-row>
-          <md-table-head md-tooltip="A posição final no rank">Posição</md-table-head>
-          <md-table-head>Nome</md-table-head>
-          <md-table-head>Tempo</md-table-head>
-        </md-table-row>
-      </md-table-header>
-
-      <md-table-body>
-        <md-table-row v-for="rank in ranks" :key="rank.posicao">
-          <md-table-cell>{{ rank.posicao }}</md-table-cell>
-          <md-table-cell>{{ rank.nome }}</md-table-cell>
-          <md-table-cell>{{ rank.tempo }}</md-table-cell>
-        </md-table-row>
-      </md-table-body>
-    </md-table>
+    <h2>{{ usuario.email }}</h2>
+    <md-button @click.native="logOut" class="md-raised md-primary">Logout</md-button>
+    <div v-for="(row, index) in baterias" :key="index">
+        {{ row['.key'] }}
+        <div v-for="registro in row[index]" >
+          {{ registro[index] }}
+        </div>
+    </div>
+    <md-button @click.native="addRank">Mostrar Baterias</md-button>
   </div>
 </template>
 
 <script>
-import { database } from '../firebase.config'
-
-let ranksRef = database.ref('ranks')
+import Auth from '../auth'
 
 export default {
   name: 'home',
@@ -37,18 +27,25 @@ export default {
         posicao: '',
         nome: '',
         tempo: ''
+      },
+      usuario: {
+        email: ''
       }
     }
   },
   firebase: {
-    ranks: ranksRef
+    baterias: Auth.bateriasRef()
   },
   methods: {
     addRank () {
-      ranksRef.push(this.rank)
-      this.rank.posicao = ''
-      this.rank.nome = ''
-      this.rank.tempo = ''
+      console.log(this.baterias)
+      // ranksRef.push(this.rank)
+      // this.rank.posicao = ''
+      // this.rank.nome = ''
+      // this.rank.tempo = ''
+    },
+    logOut () {
+      Auth.signOut()
     }
   }
 }
