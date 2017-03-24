@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Auth from '../auth'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
-import Auth from '../auth'
+import BateriaDetails from '@/components/BateriaDetails'
 
 Vue.use(Router)
 
@@ -18,7 +19,15 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
+      children: [
+        {
+          path: '/bateria/detail',
+          name: 'BateriaDetails',
+          component: BateriaDetails,
+          beforeEnter: requireAuth
+        }
+      ]
     }
   ]
 })

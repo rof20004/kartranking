@@ -49,9 +49,6 @@ export default {
       }).catch(function (error) {
         toastr.error(error.message)
       })
-    },
-    onSignedIn () {
-      this.$router.replace(this.$route.query.redirect || '/')
     }
   }
 }
