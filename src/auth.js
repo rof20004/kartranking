@@ -48,7 +48,7 @@ export default {
   signOut () {
     this.auth.signOut()
   },
-  bateriasRef () {
-    return this.database.ref('baterias')
+  getDatabase () {
+    return this.database
   }
 }

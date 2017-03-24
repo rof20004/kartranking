@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Auth from '../auth'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
-import BateriaDetails from '@/components/BateriaDetails'
+import BateriaList from '@/components/BateriaList'
+import BateriaDetail from '@/components/BateriaDetail'
 
 Vue.use(Router)
 
@@ -22,9 +23,15 @@ export default new Router({
       beforeEnter: requireAuth,
       children: [
         {
+          path: '',
+          name: 'BateriaList',
+          component: BateriaList,
+          beforeEnter: requireAuth
+        },
+        {
           path: '/bateria/detail',
-          name: 'BateriaDetails',
-          component: BateriaDetails,
+          name: 'BateriaDetail',
+          component: BateriaDetail,
           beforeEnter: requireAuth
         }
       ]
