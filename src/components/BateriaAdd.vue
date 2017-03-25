@@ -4,7 +4,7 @@
     <div class="bateriaForm">
         <md-card>
             <md-card-content>
-                <form novalidate>
+                <form novalidate @submit.stop.prevent="add">
                     <md-layout :md-gutter="8">
                         <md-layout md-flex="100">
                             <md-input-container>
@@ -17,7 +17,7 @@
                     </md-layout>
                     <md-layout md-gutter>
                         <md-layout>
-                            <md-button class="md-raised md-primary form-button" style="flex: 1" @click.native="add">Salvar</md-button>
+                            <md-button class="md-raised md-primary form-button" style="flex: 1" type="submit">Salvar</md-button>
                         </md-layout>
                     </md-layout>
                 </form>

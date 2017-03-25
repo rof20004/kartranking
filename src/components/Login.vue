@@ -13,18 +13,22 @@
                 <form novalidate @submit.stop.prevent="login">
                     <md-input-container>
                         <label>E-mail</label>
-                        <md-input v-model="email"></md-input>
+                        <md-input v-model="email" :disabled="loading"></md-input>
                     </md-input-container>
                     <md-input-container>
                         <label>Password</label>
-                        <md-input v-model="password" type="password"></md-input>
+                        <md-input v-model="password" type="password" :disabled="loading"></md-input>
                     </md-input-container>
+                    <md-layout md-gutter>
+                        <md-layout>
+                            <md-button class="md-raised md-primary form-button" style="flex: 1" type="submit" :disabled="loading">
+                                <span v-if="!loading">Entrar</span>
+                                <span v-if="loading" ><img src="../assets/ripple.svg" width="30"></span>
+                            </md-button>
+                        </md-layout>
+                    </md-layout>
                 </form>
             </md-card-content>
-
-            <md-card-actions>
-                <md-button style="flex: 1" class="md-raised md-primary" @click.native="login">Entrar</md-button>
-            </md-card-actions>
         </md-card>
     </div>
   </div>
@@ -41,15 +45,18 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      loading: false
     }
   },
   methods: {
     login () {
+      this.loading = true
       Auth.signInWithEmailAndPassword(this.email, this.password).then((user) => {
         toastr.success('Signed successfully')
-      }).catch(function (error) {
+      }).catch((error) => {
         toastr.error(error.message)
+        this.loading = false
       })
     }
   }
@@ -69,5 +76,9 @@ export default {
 
 .md-subhead {
     text-align: center
+}
+
+.form-button {
+  margin: 0 auto;
 }
 </style>
