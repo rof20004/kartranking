@@ -34,6 +34,8 @@
 import Auth from '../auth'
 import toastr from 'toastr'
 
+toastr.options.positionClass = 'toast-bottom-center'
+
 export default {
   name: 'login',
   data () {
