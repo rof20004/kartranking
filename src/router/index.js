@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Auth from '../auth'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
+import BateriaAdd from '@/components/BateriaAdd'
 import BateriaList from '@/components/BateriaList'
 import BateriaDetail from '@/components/BateriaDetail'
 
@@ -29,7 +30,13 @@ export default new Router({
           beforeEnter: requireAuth
         },
         {
-          path: '/bateria/detail',
+          path: '/bateria',
+          name: 'BateriaAdd',
+          component: BateriaAdd,
+          beforeEnter: requireAuth
+        },
+        {
+          path: '/bateria/:bateriaId',
           name: 'BateriaDetail',
           component: BateriaDetail,
           beforeEnter: requireAuth

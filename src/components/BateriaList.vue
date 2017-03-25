@@ -15,6 +15,7 @@
 
           <md-button class="md-icon-button md-list-action" @click.native="bateriaDetail(bateria['.key'])">
             <md-icon>visibility</md-icon>
+            <md-tooltip md-direction="right">Detalhar a bateria</md-tooltip>
           </md-button>
         </md-list-item>
       </md-list>
@@ -27,7 +28,7 @@ import Auth from '../auth'
 import Moment from 'moment'
 
 export default {
-  name: 'bateria',
+  name: 'bateria-list',
   filters: {
     data (value) {
       return Moment(value, 'YYYYMMDDHHmmss').format('DD/MM/YYYY')
