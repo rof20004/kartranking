@@ -29,6 +29,7 @@
 
 <script>
 import Auth from '../auth'
+import toastr from 'toastr'
 
 let bateriasRef = Auth.getDatabase().ref('baterias')
 
@@ -64,6 +65,8 @@ export default {
     add () {
       if (this.isValid) {
         bateriasRef.child(this.bateria.dataHora).set(true)
+        toastr.success('Bateria cadastrada com sucesso')
+        this.bateria.dataHora = ''
       }
     }
   }
