@@ -1,6 +1,17 @@
 {
   "rules": {
     ".read": "true",
-    ".write": "true"
+    "baterias": {
+      ".write": "auth != null"
+    },
+    "pilotos": {
+      ".write": "auth != null"
+    },
+    "rankings": {
+      ".write": "auth != null"
+    },
+    "campeonatos": {
+      ".write": "auth != null"
+    }
   }
 }

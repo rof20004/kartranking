@@ -25,8 +25,7 @@ export default new Router({
         {
           path: '',
           name: 'BateriaList',
-          component: BateriaList,
-          beforeEnter: requireAuth
+          component: BateriaList
         },
         {
           path: '/bateria',
