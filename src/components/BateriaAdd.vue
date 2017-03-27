@@ -28,10 +28,8 @@
 </template>
 
 <script>
-import Auth from '../auth'
+import Database from '../database'
 import toastr from 'toastr'
-
-let bateriasRef = Auth.getDatabase().ref('baterias')
 
 export default {
   name: 'bateria-add',
@@ -41,11 +39,6 @@ export default {
       bateria: {
         dataHora: ''
       }
-    }
-  },
-  firebase () {
-    return {
-      baterias: bateriasRef
     }
   },
   computed: {
@@ -64,7 +57,7 @@ export default {
   methods: {
     add () {
       if (this.isValid) {
-        bateriasRef.child(this.bateria.dataHora).set(true)
+        Database.getBaterias().child(this.bateria.dataHora).set(true)
         toastr.success('Bateria cadastrada com sucesso')
         this.bateria.dataHora = ''
       }

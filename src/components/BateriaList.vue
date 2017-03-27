@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Auth from '../auth'
+import Database from '../database'
 import Moment from 'moment'
 
 export default {
@@ -39,7 +39,7 @@ export default {
   },
   firebase () {
     return {
-      baterias: Auth.getDatabase().ref('baterias')
+      baterias: Database.getBaterias()
     }
   },
   methods: {

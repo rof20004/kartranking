@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Auth from '../auth'
+import Database from '../database'
 
 export default {
   name: 'bateria-details',
@@ -46,7 +46,7 @@ export default {
   },
   firebase () {
     return {
-      baterias: Auth.getDatabase().ref('baterias/' + this.$route.params.bateriaId)
+      baterias: Database.getBateriasByKey(this.$route.params.bateriaId)
     }
   }
 }
