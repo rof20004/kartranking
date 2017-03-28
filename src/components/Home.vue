@@ -1,22 +1,33 @@
 <template>
   <div class="home">
-    <md-toolbar>
-      <h2 class="md-title">{{ title }}</h2>
-      <span style="flex: 1"></span>
-      <md-button href="#/" class="md-icon-button">
-        <md-icon>home</md-icon>
-        <md-tooltip md-direction="bottom">Ir para tela inicial</md-tooltip>
-      </md-button>
-      <md-button href="#/bateria" class="md-icon-button">
-        <md-icon>note_add</md-icon>
-        <md-tooltip md-direction="bottom">Cadastrar bateria</md-tooltip>
-      </md-button>
-      <span style="flex: 20"></span>
-      <md-button @click.native="logOut" class="md-icon-button">
-        <md-icon>exit_to_app</md-icon>
-        <md-tooltip md-direction="left">Sair da aplicação</md-tooltip>
-      </md-button>
-    </md-toolbar>
+    <nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-inverse bg-primary">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">{{ title }}</a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+          <li class="nav-item">
+            <a class="nav-link"  href="#/" title="Ir para tela inicial">
+              <span class="fa fa-home" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/bateria" title="Cadastrar Bateria">
+              <span class="fa fa-plus-square" aria-hidden="true"></span>
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link"  href="#" @click="logOut" title="Sair da aplicação">
+              <span class="fa fa-sign-out" aria-hidden="true"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <router-view></router-view>
   </div>
 </template>

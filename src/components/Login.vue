@@ -1,35 +1,35 @@
 <template>
   <div class="login">
-    <div class="form">
-        <md-card>
-            <md-card-header>
-                <md-card-header-text>
-                    <div class="md-title">Kart Ranking Login</div>
-                    <div class="md-subhead">Seja bem vindo ao sistema de rankeamento do Kart</div>
-                </md-card-header-text>
-            </md-card-header>
+    <div class="container">
+      <div class="row">
 
-            <md-card-content>
-                <form novalidate @submit.stop.prevent="login">
-                    <md-input-container>
-                        <label>E-mail</label>
-                        <md-input v-model="email" :disabled="loading"></md-input>
-                    </md-input-container>
-                    <md-input-container>
-                        <label>Password</label>
-                        <md-input v-model="password" type="password" :disabled="loading"></md-input>
-                    </md-input-container>
-                    <md-layout md-gutter>
-                        <md-layout>
-                            <md-button class="md-raised md-primary form-button" style="flex: 1" type="submit" :disabled="loading">
-                                <span v-if="!loading">Entrar</span>
-                                <span v-if="loading" ><img src="../assets/ripple.svg" width="30"></span>
-                            </md-button>
-                        </md-layout>
-                    </md-layout>
-                </form>
-            </md-card-content>
-        </md-card>
+        <div class="form">
+          <div class="card">
+              <div class="card-header">
+                  <p>Kart Ranking Login</p>
+                  <h6 class="card-title text-muted">Seja bem vindo ao sistema de rankeamento do Kart</h6>
+              </div>
+
+              <div class="card-block">
+                  <form novalidate @submit.stop.prevent="login">
+                      <div class="form-group">
+                          <label for="email">E-mail</label>
+                          <input id="email" type="text" class="form-control" v-model="email" :disabled="loading" />
+                      </div>
+                      <div class="form-group">
+                          <label for="password">Password</label>
+                          <input id="password" type="password" class="form-control" v-model="password" :disabled="loading" />
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block" :disabled="loading">
+                        <span v-if="!loading">Entrar</span>
+                        <span v-if="loading" ><img src="../assets/ripple.svg" width="30"></span>
+                      </button>
+                  </form>
+              </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +53,7 @@ export default {
     login () {
       this.loading = true
       Auth.signInWithEmailAndPassword(this.email, this.password).then((user) => {
-        toastr.success('Signed successfully')
+        toastr.success('Autenticado com sucesso')
       }).catch((error) => {
         toastr.error(error.message)
         this.loading = false
@@ -66,15 +66,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .form {
-    width: 500px;
     margin: 0 auto;
 }
 
-.md-title {
+.card-header {
     text-align: center
 }
 
-.md-subhead {
+.card-title {
     text-align: center
 }
 

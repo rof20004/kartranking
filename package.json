@@ -13,8 +13,11 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
     "firebase": "^3.7.3",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "tether": "^1.4.0",
     "toastr": "^2.1.2",
     "vue": "^2.2.2",
     "vue-material": "^0.7.1",

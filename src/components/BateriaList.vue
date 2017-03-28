@@ -1,25 +1,27 @@
 <template>
   <div class="bateria-list">
-    <md-table-card class="tbl">
-      <md-toolbar>
-        <h1 class="md-title">Baterias</h1>
-      </md-toolbar>
-      <md-list class="md-double-line">
-        <md-list-item v-for="bateria in baterias" :key="bateria.key">
-          <md-icon class="md-primary">streetview</md-icon>
+    <div class="container">
+      <md-table-card class="tbl">
+        <md-toolbar>
+          <h1 class="md-title">Baterias</h1>
+        </md-toolbar>
+        <md-list class="md-double-line">
+          <md-list-item v-for="bateria in baterias" :key="bateria.key">
+            <md-icon class="md-primary">streetview</md-icon>
 
-          <div class="md-list-text-container">
-            <span>Data: {{ bateria['.key'] | data }}</span>
-            <span>Hora: {{ bateria['.key'] | hora }}</span>
-          </div>
+            <div class="md-list-text-container">
+              <span>Data: {{ bateria['.key'] | data }}</span>
+              <span>Hora: {{ bateria['.key'] | hora }}</span>
+            </div>
 
-          <md-button class="md-icon-button md-list-action" @click.native="bateriaDetail(bateria['.key'])">
-            <md-icon>visibility</md-icon>
-            <md-tooltip md-direction="right">Detalhar a bateria</md-tooltip>
-          </md-button>
-        </md-list-item>
-      </md-list>
-    </md-table-card>
+            <md-button class="md-icon-button md-list-action" @click.native="bateriaDetail(bateria['.key'])">
+              <md-icon>visibility</md-icon>
+              <md-tooltip md-direction="right">Detalhar a bateria</md-tooltip>
+            </md-button>
+          </md-list-item>
+        </md-list>
+      </md-table-card>
+    </div>
   </div>
 </template>
 
