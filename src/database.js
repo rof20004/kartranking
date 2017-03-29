@@ -11,9 +11,6 @@ export default {
 
   // Get baterias reference by key
   getBateriasByKey (key) {
-    if (key) {
-      return this.database.ref('baterias/' + key)
-    }
-    return this.database.ref('baterias')
+    return this.database.ref('baterias/' + key)
   }
 }
