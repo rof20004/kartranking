@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Database from '../database'
+import Database from '../../database'
 
 export default {
   name: 'bateria-details',

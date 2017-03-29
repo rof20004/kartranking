@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Database from '../database'
+import Database from '../../database'
 import toastr from 'toastr'
 
 export default {

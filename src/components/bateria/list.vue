@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Database from '../database'
+import Database from '../../database'
 import Moment from 'moment'
 
 export default {

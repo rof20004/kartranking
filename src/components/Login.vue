@@ -22,7 +22,7 @@
                       </div>
                       <button type="submit" class="btn btn-primary btn-block" :disabled="loading">
                         <span v-if="!loading">Entrar</span>
-                        <span v-if="loading" ><img src="../assets/ripple.svg" width="30"></span>
+                        <span v-if="loading" ><img src="../assets/img/ripple.svg" width="30"></span>
                       </button>
                   </form>
               </div>
