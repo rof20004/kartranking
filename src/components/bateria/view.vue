@@ -1,35 +1,37 @@
 <template>
   <div class="bateria-details">
-    <h2>{{ title }} </h2>
-    <md-table v-if="baterias.length > 0">
-      <md-table-header>
-        <md-table-row>
-          <md-table-head>Nome</md-table-head>
-          <md-table-head md-tooltip="Diferença para o anterior">DA</md-table-head>
-          <md-table-head md-tooltip="Diferença para o líder">DL</md-table-head>
-          <md-table-head md-tooltip="Número do competidor">KART</md-table-head>
-          <md-table-head md-tooltip="Posição">POS</md-table-head>
-          <md-table-head md-tooltip="Tempo da melhor volta">TMV</md-table-head>
-          <md-table-head md-tooltip="Tempo total">TT</md-table-head>
-          <md-table-head md-tooltip="Total de voltas">TV</md-table-head>
-        </md-table-row>
-      </md-table-header>
+    <h2>{{ title }}</h2>
+    <div class="table-responsive">
+      <table class="table table-hover" width="100%" v-if="baterias.length > 0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>DA</th>
+            <th>DL</th>
+            <th>KART</th>
+            <th>POS</th>
+            <th>TMV</th>
+            <th>TT</th>
+            <th>TV</th>
+          </tr>
+        </thead>
 
-      <md-table-body>
-        <md-table-row v-for="bateria in baterias" :key="bateria.key">
-          <md-table-cell>{{ bateria['.key'] }}</md-table-cell>
-          <md-table-cell>{{ bateria['da'] }}</md-table-cell>
-          <md-table-cell>{{ bateria['dl'] }}</md-table-cell>
-          <md-table-cell>{{ bateria['kart'] }}</md-table-cell>
-          <md-table-cell>{{ bateria['pos'] }}</md-table-cell>
-          <md-table-cell>{{ bateria['tmv'] }}</md-table-cell>
-          <md-table-cell>{{ bateria['tt'] }}</md-table-cell>
-          <md-table-cell>{{ bateria['tv'] }}</md-table-cell>
-        </md-table-row>
-      </md-table-body>
-    </md-table>
-    <div v-else>
-      <h2>Sem registros</h2>
+        <tbody>
+          <tr v-for="bateria in baterias">
+            <td>{{ bateria['.key'] }}</td>
+            <td>{{ bateria.da }}</td>
+            <td>{{ bateria.dl }}</td>
+            <td>{{ bateria.kart }}</td>
+            <td>{{ bateria.pos }}</td>
+            <td>{{ bateria.tmv }}</td>
+            <td>{{ bateria.tt }}</td>
+            <td>{{ bateria.tv }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div v-else>
+        <h2>Sem registros</h2>
+      </div>
     </div>
   </div>
 </template>
@@ -56,5 +58,6 @@ export default {
 <style scoped>
 h2 {
   text-align: center;
+  padding-bottom: 50px;
 }
 </style>

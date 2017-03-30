@@ -1,28 +1,16 @@
 <template>
   <div class="bateria-add">
     <h2>{{ title }}</h2>
-    <div class="bateriaForm">
-        <md-card>
-            <md-card-content>
-                <form novalidate @submit.stop.prevent="add">
-                    <md-layout :md-gutter="8">
-                        <md-layout md-flex="100">
-                            <md-input-container>
-                                <label>Data do Evento</label>
-                                <md-input v-model="bateria.dataHora" required></md-input>
-                                <span class="errors" v-if="!validation.dataHora">Data do evento não pode ser vazia</span>
-                                <span class="md-caption" v-else>Formato: YYYYMMDDHHMM</span>
-                            </md-input-container>
-                        </md-layout>
-                    </md-layout>
-                    <md-layout md-gutter>
-                        <md-layout>
-                            <md-button class="md-raised md-primary form-button" style="flex: 1" type="submit">Salvar</md-button>
-                        </md-layout>
-                    </md-layout>
-                </form>
-            </md-card-content>
-        </md-card>
+    <div class="container">
+      <div class="row">
+        <form novalidate @submit.stop.prevent="add">
+            <div class="form-group">
+              <label>Data do Evento</label>
+              <input type="text" class="form-control" v-model="bateria.dataHora" />
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Salvar</button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -42,12 +30,12 @@ export default {
     }
   },
   computed: {
-    validation: function () {
+    validation () {
       return {
         dataHora: !!this.bateria.dataHora.trim()
       }
     },
-    isValid: function () {
+    isValid () {
       var validation = this.validation
       return Object.keys(validation).every(function (key) {
         return validation[key]
@@ -70,14 +58,11 @@ export default {
 <style scoped>
 h2 {
   text-align: center;
+  padding-bottom: 50px;
 }
 
-.bateriaForm {
+form {
     width: 600px;
-    margin: 0 auto;
-}
-
-.form-button {
     margin: 0 auto;
 }
 
