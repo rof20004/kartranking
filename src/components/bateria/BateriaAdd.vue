@@ -3,12 +3,17 @@
     <h2>{{ title }}</h2>
     <div class="container">
       <div class="row">
+        <div class="form-group">
+          <button class="btn btn-success">Cadastrar</button>
+        </div>
+      </div>
+      <div class="row">
         <form novalidate @submit.stop.prevent="add">
             <div class="form-group">
               <label>Data do Evento</label>
               <input type="text" class="form-control" v-model="bateria.dataHora" />
             </div>
-            <button class="btn btn-primary btn-block" type="submit">Salvar</button>
+            <button class="btn btn-primary btn-block" type="submit" :disabled="!isValid">Salvar</button>
         </form>
       </div>
     </div>

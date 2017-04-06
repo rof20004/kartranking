@@ -3,9 +3,9 @@ import Router from 'vue-router'
 import Auth from '../auth'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
-import BateriaAdd from '@/components/bateria/add'
-import BateriaList from '@/components/bateria/list'
-import BateriaView from '@/components/bateria/view'
+import BateriaAdd from '@/components/bateria/BateriaAdd.vue'
+import BateriaList from '@/components/bateria/BateriaList.vue'
+import BateriaView from '@/components/bateria/BateriaView.vue'
 
 Vue.use(Router)
 
