@@ -10,19 +10,19 @@
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
           <li class="nav-item">
             <a class="nav-link"  href="#/" title="Ir para tela inicial">
-              <span class="fa fa-home" aria-hidden="true"></span>
+              <span class="fa fa-home" aria-hidden="true"> Home</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#/bateria" title="Cadastrar Bateria">
-              <span class="fa fa-plus-square" aria-hidden="true"></span>
+              <span class="fa fa-plus-square" aria-hidden="true"> Bateria</span>
             </a>
           </li>
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">
           <li class="nav-item">
             <a class="nav-link"  href="#" @click="logOut" title="Sair da aplicação">
-              <span class="fa fa-sign-out" aria-hidden="true"></span>
+              <span class="fa fa-sign-out" aria-hidden="true"> Sair</span>
             </a>
           </li>
         </ul>

@@ -3,9 +3,9 @@ import Router from 'vue-router'
 import Auth from '../auth'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
-import BateriaAdd from '@/components/BateriaAdd'
-import BateriaList from '@/components/BateriaList'
-import BateriaDetail from '@/components/BateriaDetail'
+import BateriaAdd from '@/components/bateria/BateriaAdd.vue'
+import BateriaList from '@/components/bateria/BateriaList.vue'
+import BateriaView from '@/components/bateria/BateriaView.vue'
 
 Vue.use(Router)
 
@@ -24,20 +24,20 @@ export default new Router({
       children: [
         {
           path: '',
-          name: 'BateriaList',
+          name: 'bateria-list',
           component: BateriaList,
           beforeEnter: requireAuth
         },
         {
           path: '/bateria',
-          name: 'BateriaAdd',
+          name: 'bateria-add',
           component: BateriaAdd,
           beforeEnter: requireAuth
         },
         {
           path: '/bateria/:bateriaId',
-          name: 'BateriaDetail',
-          component: BateriaDetail,
+          name: 'bateria-view',
+          component: BateriaView,
           beforeEnter: requireAuth
         }
       ]
