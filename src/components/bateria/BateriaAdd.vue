@@ -15,7 +15,7 @@
               </div>
               <div class="col-1">
                 <label>&nbsp;</label><br>
-                <button type="button" class="btn btn-success" :disabled="!isValid">Finalizar Cadastro</button>
+                <button type="button" class="btn btn-success" :disabled="!isValid" @click="add">Finalizar Cadastro</button>
               </div>
             </div>
           </div>
