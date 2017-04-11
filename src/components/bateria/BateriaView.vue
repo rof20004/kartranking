@@ -5,11 +5,11 @@
       <table class="table table-hover" width="100%" v-if="baterias.length > 0">
         <thead>
           <tr>
+            <th>POS</th>
+            <th>KART</th>
             <th>Nome</th>
             <th>DA</th>
             <th>DL</th>
-            <th>KART</th>
-            <th>POS</th>
             <th>TMV</th>
             <th>TT</th>
             <th>TV</th>
@@ -18,11 +18,11 @@
 
         <tbody>
           <tr v-for="bateria in baterias">
+            <td>{{ bateria.pos }}</td>
+            <td>{{ bateria.kart }}</td>
             <td>{{ bateria['.key'] }}</td>
             <td>{{ bateria.da }}</td>
             <td>{{ bateria.dl }}</td>
-            <td>{{ bateria.kart }}</td>
-            <td>{{ bateria.pos }}</td>
             <td>{{ bateria.tmv }}</td>
             <td>{{ bateria.tt }}</td>
             <td>{{ bateria.tv }}</td>
@@ -48,7 +48,7 @@ export default {
   },
   firebase () {
     return {
-      baterias: Database.getBateriasByKey(this.$route.params.bateriaId)
+      baterias: Database.getBateriasByKey(this.$route.params.bateriaId).orderByChild('pos')
     }
   }
 }
