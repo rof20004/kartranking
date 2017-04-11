@@ -62,7 +62,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .card {
-  margin: 0 auto;
+  margin: 140px auto;
 }
 
 .card-header {
