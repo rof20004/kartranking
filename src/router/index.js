@@ -6,6 +6,7 @@ import Home from '@/components/Home'
 import BateriaAdd from '@/components/bateria/BateriaAdd.vue'
 import BateriaList from '@/components/bateria/BateriaList.vue'
 import BateriaView from '@/components/bateria/BateriaView.vue'
+import RankingList from '@/components/ranking/RankingList.vue'
 
 Vue.use(Router)
 
@@ -20,13 +21,11 @@ export default new Router({
     {
       path: '/',
       component: Home,
-      beforeEnter: requireAuth,
       children: [
         {
           path: '',
           name: 'bateria-list',
-          component: BateriaList,
-          beforeEnter: requireAuth
+          component: BateriaList
         },
         {
           path: '/bateria',
@@ -37,8 +36,12 @@ export default new Router({
         {
           path: '/bateria/:bateriaId',
           name: 'bateria-view',
-          component: BateriaView,
-          beforeEnter: requireAuth
+          component: BateriaView
+        },
+        {
+          path: '/ranking',
+          name: 'ranking-list',
+          component: RankingList
         }
       ]
     }

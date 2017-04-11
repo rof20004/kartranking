@@ -12,5 +12,10 @@ export default {
   // Get baterias reference by key
   getBateriasByKey (key) {
     return this.database.ref('baterias/' + key)
+  },
+
+  // Get rankings reference
+  getRankings () {
+    return this.database.ref('rankings')
   }
 }

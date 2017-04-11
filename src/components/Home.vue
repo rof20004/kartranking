@@ -18,6 +18,11 @@
               <span class="fa fa-plus-square" aria-hidden="true"> Bateria</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="#/ranking" title="Visualizar o Ranking">
+              <span class="fa fa-trophy" aria-hidden="true"> Ranking</span>
+            </a>
+          </li>
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">
           <li class="nav-item">
