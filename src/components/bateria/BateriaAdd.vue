@@ -160,8 +160,6 @@ export default {
     validationParticipante () {
       return {
         nome: !!this.participante.nome.trim(),
-        da: !!this.participante.da.trim(),
-        dl: !!this.participante.dl.trim(),
         kart: !!this.participante.kart.trim(),
         pos: !!this.participante.pos.trim(),
         tmv: !!this.participante.tmv.trim(),
@@ -190,6 +188,18 @@ export default {
         } else {
           Database.getBaterias().child(this.bateria.dataHora).set(true)
         }
+        /**
+         * Atualização do Ranking
+         */
+        let rankingRef = Database.getRankings()
+        this.participantes.forEach((participante) => {
+          let time = participante.tmv.split(':')
+          let scoreInSeconds = 0
+          if (time.length === 3) {
+            scoreInSeconds = parseFloat(time[2]) + parseInt(time[1]) * 60 + parseInt(time[0]) * 3600
+          }
+          rankingRef.child(participante.nome).set({ 'score': scoreInSeconds, 'tmv': participante.tmv })
+        })
 
         toastr.success('Bateria cadastrada com sucesso')
 

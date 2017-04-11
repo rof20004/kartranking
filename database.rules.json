@@ -8,7 +8,8 @@
       ".write": "auth != null"
     },
     "rankings": {
-      ".write": "auth != null"
+      ".write": "auth != null",
+      ".indexOn": "score"
     },
     "campeonatos": {
       ".write": "auth != null"

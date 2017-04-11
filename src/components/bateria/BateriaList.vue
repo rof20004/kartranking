@@ -48,7 +48,7 @@ export default {
   },
   firebase () {
     return {
-      baterias: Database.getBaterias()
+      baterias: Database.getBaterias().orderByKey()
     }
   }
 }
